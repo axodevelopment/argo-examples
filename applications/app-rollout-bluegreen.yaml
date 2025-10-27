@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rollouts-demo
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: rollouts-demo
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/argoproj/argo-rollouts.git
+    targetRevision: HEAD
+    path: examples/rollout-bluegreen
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
