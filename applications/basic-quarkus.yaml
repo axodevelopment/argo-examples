@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: basic-quarkus-dev-a
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: dev-a
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://bitbucket.org/axodevelopment/argo-basic-quarkus.git
+    targetRevision: main
+    path: apps/overlays/dev-a
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
