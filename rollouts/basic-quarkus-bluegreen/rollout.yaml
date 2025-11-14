@@ -10,7 +10,19 @@ spec:
     blueGreen:
       activeService: rollouts-demo-active
       previewService: rollouts-demo-preview
-      autoPromotionEnabled: true
+      autoPromotionEnabled: false
+      prePromotionAnalysis:
+        templates:
+          - templateName: basic-quarkus-health
+        args:
+          - name: service-name
+            value: basic-quarkus-preview
+      postPromotionAnalysis:
+        templates:
+          - templateName: basic-quarkus-health
+        args:
+          - name: service-name
+            value: basic-quarkus-active
   selector:
     matchLabels:
       app: rollouts-demo

@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: basic-quarkus-health
+spec:
+  args:
+    - name: service-name
+    - name: port
+      value: "8080"
+    - name: path
+      value: "/hello"
+  metrics:
+    - name: http-check
+      interval: 10s
+      count: 3
+      successCondition: result == 200
+      failureCondition: result != 200
+      provider:
+        web:
+          url: "http://{{args.service-name}}:{{args.port}}{{args.path}}"
+          method: GET
