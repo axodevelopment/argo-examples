@@ -15,14 +15,22 @@ spec:
         templates:
           - templateName: basic-quarkus-health
         args:
+          - name: namespace
+            value: dev-b
           - name: service-name
             value: basic-quarkus-preview
+          - name: port
+            value: 80
       postPromotionAnalysis:
         templates:
           - templateName: basic-quarkus-health
         args:
+          - name: namespace
+            value: dev-b
           - name: service-name
-            value: basic-quarkus-active
+            value: basic-quarkus-preview
+          - name: port
+            value: 80
   selector:
     matchLabels:
       app: basic-quarkus

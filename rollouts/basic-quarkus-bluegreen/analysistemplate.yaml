@@ -4,6 +4,7 @@ metadata:
   name: basic-quarkus-health
 spec:
   args:
+    - name: namespace
     - name: service-name
     - name: port
       value: "8080"
@@ -17,5 +18,5 @@ spec:
       failureCondition: result != 200
       provider:
         web:
-          url: "http://{{args.service-name}}:{{args.port}}{{args.path}}"
+          url: "http://{{args.service-name}}.{{args.namespace}}.svc.cluster.local:{{args.port}}{{args.path}}"
           method: GET
