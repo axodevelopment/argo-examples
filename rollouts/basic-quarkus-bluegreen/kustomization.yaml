@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - rollout.yaml
+  - service.yaml
 
 images:
   - name: quay.io/axodevelopment/example-app
