@@ -20,7 +20,7 @@ spec:
           - name: service-name
             value: basic-quarkus-preview
           - name: port
-            value: 80
+            value: "80"
       postPromotionAnalysis:
         templates:
           - templateName: basic-quarkus-health
@@ -30,7 +30,7 @@ spec:
           - name: service-name
             value: basic-quarkus-preview
           - name: port
-            value: 80
+            value: "80"
   selector:
     matchLabels:
       app: basic-quarkus
