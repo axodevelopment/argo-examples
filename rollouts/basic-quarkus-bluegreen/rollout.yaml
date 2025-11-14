@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: rollouts-demo
+  name: rollouts-basic-quarkus
   labels:
-    app: rollouts-demo
+    app: rollouts-basic-quarkus
 spec:
   replicas: 3
   strategy:
     blueGreen:
-      activeService: rollouts-demo-active
-      previewService: rollouts-demo-preview
+      activeService: basic-quarkus-active
+      previewService: basic-quarkus-preview
       autoPromotionEnabled: false
       prePromotionAnalysis:
         templates:
@@ -25,14 +25,14 @@ spec:
             value: basic-quarkus-active
   selector:
     matchLabels:
-      app: rollouts-demo
+      app: basic-quarkus
   template:
     metadata:
       labels:
-        app: rollouts-demo
+        app: basic-quarkus
     spec:
       containers:
-      - name: rollouts-demo
+      - name: basic-quarkus
         image: quay.io/axodevelopment/example-app:102725.1
         ports:
         - containerPort: 8080
