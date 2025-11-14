@@ -10,7 +10,8 @@ spec:
     blueGreen:
       activeService: basic-quarkus-active
       previewService: basic-quarkus-preview
-      autoPromotionEnabled: false
+      autoPromotionEnabled: true
+      autoPromotionSeconds: 60
       prePromotionAnalysis:
         templates:
           - templateName: basic-quarkus-health
