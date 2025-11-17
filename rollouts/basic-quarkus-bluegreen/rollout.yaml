@@ -43,5 +43,6 @@ spec:
       containers:
       - name: basic-quarkus
         image: quay.io/axodevelopment/example-app:102725.1
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
