@@ -1,0 +1,19 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: myapp-route
+spec:
+  port:
+    targetPort: http 
+  tls: 
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: myapp-active 
+    weight: 100 
+
+  alternateBackends:
+    - kind: Service
+      name: myapp-preview
+      weight: 0 

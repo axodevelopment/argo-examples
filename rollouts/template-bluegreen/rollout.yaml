@@ -10,6 +10,11 @@ spec:
     blueGreen:
       activeService: myapp-active
       previewService: myapp-preview
+      trafficRouting:
+        plugins:
+          argoproj-labs/openshift:
+            routes:
+              - myapp-route
       autoPromotionEnabled: true
       autoPromotionSeconds: 60
       prePromotionAnalysis:
