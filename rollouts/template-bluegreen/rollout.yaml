@@ -22,7 +22,7 @@ spec:
           - templateName: myapp-health
         args:
           - name: namespace
-            value: dev-b
+            value: ocp-test-kb-dev
           - name: service-name
             value: myapp-preview
           - name: port
@@ -34,7 +34,7 @@ spec:
           - templateName: myapp-health
         args:
           - name: namespace
-            value: dev-b
+            value: ocp-test-kb-dev
           - name: service-name
             value: myapp-active
           - name: port
