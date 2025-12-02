@@ -13,6 +13,11 @@ spec:
     canary:
       canaryService: rollouts-demo-canary-canary
       stableService: rollouts-demo-canary-stable
+      trafficRouting:
+        plugins:
+          argoproj-labs/openshift:
+            routes:
+              - myapp-route
       steps:
       - setWeight: 20
       - pause: { duration: 20 }
