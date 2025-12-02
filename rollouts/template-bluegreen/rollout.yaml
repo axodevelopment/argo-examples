@@ -1,0 +1,52 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: myapp-blueGreen
+  labels:
+    app: myapp-blueGreen
+spec:
+  replicas: 3
+  strategy:
+    blueGreen:
+      activeService: myapp-active
+      previewService: myapp-preview
+      autoPromotionEnabled: true
+      autoPromotionSeconds: 60
+      prePromotionAnalysis:
+        templates:
+          - templateName: myapp-health
+        args:
+          - name: namespace
+            value: dev-b
+          - name: service-name
+            value: myapp-preview
+          - name: port
+            value: "80"
+          - name: path
+            value: "/hello"
+      postPromotionAnalysis:
+        templates:
+          - templateName: myapp-health
+        args:
+          - name: namespace
+            value: dev-b
+          - name: service-name
+            value: myapp-active
+          - name: port
+            value: "80"
+          - name: path
+            value: "/hello"
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: quay.io/axodevelopment/example-app:102725.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
