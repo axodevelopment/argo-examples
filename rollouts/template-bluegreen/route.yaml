@@ -4,7 +4,7 @@ metadata:
   name: myapp-route
 spec:
   port:
-    targetPort: http 
+    targetPort: 8080 
   tls: 
     insecureEdgeTerminationPolicy: Redirect
     termination: edge
