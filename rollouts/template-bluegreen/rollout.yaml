@@ -1,9 +1,9 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: myapp-blueGreen
+  name: myapp-bluegreen
   labels:
-    app: myapp-blueGreen
+    app: myapp-bluegreen
 spec:
   replicas: 3
   strategy:
