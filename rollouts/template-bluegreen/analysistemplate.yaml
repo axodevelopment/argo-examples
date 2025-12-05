@@ -15,11 +15,23 @@ spec:
       interval: 10s
       initialDelay: 10s
       count: 3
-      failureLimit: 2
-      consecutiveErrorLimit: 2
-      successCondition: result == 200
-      #successCondition: result.slap == 200
-      #successCondition: result.slap == 200
+      failureLimit: 1
+      #consecutiveErrorLimit: 2
+
+      # True only for the webmetric provider ie line 38
+      ########## opt 1 - BODY is not JSON #####
+      ### don't set successCondition or failureCondition
+      ##########
+
+      ########## opt 2 - BODY is not JSON || but you jus twant to test connectivity #####
+      ### don't set successCondition or failureCondition
+      ##########
+
+      ########## opt 2 - BODY is not JSON and you want to check the resonse ie healthz #####
+      ### set successCondition or failureCondition
+      successCondition: result.status == "ok"
+      ##########
+
       provider:
         web:
           url: "http://{{args.service-name}}.{{args.namespace}}.svc.cluster.local:{{args.port}}{{args.path}}"
