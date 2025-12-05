@@ -16,7 +16,7 @@ spec:
       initialDelay: 10s
       count: 3
       failureLimit: 2
-      consecutiveFailLimit: 2
+      consecutiveErrorLimit: 2
       #successCondition: result == 200
       successCondition: result.slap == 200
       #successCondition: result.slap == 200
