@@ -23,7 +23,7 @@ spec:
           - name: service-name
             value: myapp-preview
           - name: port
-            value: "80"
+            value: "4444" #"80"
           - name: path
             value: "/hello"
       postPromotionAnalysis:
