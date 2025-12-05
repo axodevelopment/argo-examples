@@ -12,6 +12,7 @@ spec:
       previewService: myapp-preview
       autoPromotionEnabled: true
       autoPromotionSeconds: 60
+      autoScaleDownDelaySeconds: 30
       prePromotionAnalysis:
         templates:
           - templateName: myapp-health
