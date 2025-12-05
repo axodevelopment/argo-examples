@@ -15,7 +15,7 @@ spec:
       interval: 10s
       count: 3
       #successCondition: result == 200
-      #failureCondition: result != 200
+      failureCondition: result != 200
       successCondition: result.slap == 200
       provider:
         web:
