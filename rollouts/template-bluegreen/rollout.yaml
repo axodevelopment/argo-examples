@@ -13,6 +13,7 @@ spec:
       autoPromotionEnabled: true
       autoPromotionSeconds: 60
       scaleDownDelaySeconds: 30
+      abortScaleDownDelaySeconds: 30
       prePromotionAnalysis:
         templates:
           - templateName: myapp-health
