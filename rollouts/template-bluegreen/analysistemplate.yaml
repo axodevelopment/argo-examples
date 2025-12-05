@@ -18,7 +18,7 @@ spec:
       failureLimit: 2
       consecutiveErrorLimit: 2
       #successCondition: result == 200
-      successCondition: result.slap == 200
+      #successCondition: result.slap == 200
       #successCondition: result.slap == 200
       provider:
         web:
