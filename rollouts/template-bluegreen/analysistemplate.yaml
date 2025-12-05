@@ -16,8 +16,7 @@ spec:
       count: 3
       #successCondition: result == 200
       #failureCondition: result != 200
-      successCondition: result.code != nil && result.code == 200
-      failureCondition: result.code != nil && result.code != 200
+      successCondition: result.slap == 200
       provider:
         web:
           url: "http://{{args.service-name}}.{{args.namespace}}.svc.cluster.local:{{args.port}}{{args.path}}"
